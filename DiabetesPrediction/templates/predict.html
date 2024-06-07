@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Diabetes Prediction System</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/predictpage.css' %}">
+    </head>
+    <body>
+       <div align="center:" class="main">
+            <h1>Please Enter The Following Information</h1>
+            <form action="result" class="main1">
+                <table>
+                    <tr>
+                        <td align="right">Preganacies</td>
+                        <td align="left"><input type="text" name="n1" placeholder="Enter number of pregnancies" value="{{ n1 }}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Glucose</td>
+                        <td align="left"><input type="text" name="n2" placeholder="Enter glucose level" value="{{n2}}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Blood Pressure</td>
+                        <td align="left"><input type="text" name="n3" placeholder="Enter blood pressure" value="{{n3}}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Skin Thickness</td>
+                        <td align="left"><input type="text" name="n4" placeholder="Enter skin thickness" value="{{n4}}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Insulin</td>
+                        <td align="left"><input type="text" name="n5" placeholder="Enter insulin level" value="{{n5}}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">BMI</td>
+                        <td align="left"><input type="text" name="n6" placeholder="Enter BMI" value="{{n6}}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Diabetes Pedigree Function</td>
+                        <td align="left"><input type="text" name="n7" placeholder="Enter diabetes pedigree function" value="{{n7}}" required></td>
+                    </tr>
+                    <tr>
+                        <td align="right">Age</td>
+                        <td align="left"><input type="text" name="n8" placeholder="Enter age" value="{{n8}}" required></td>
+                    </tr>
+                </table>
+                <input type="submit">
+                <button class="print-button" onclick="printForm()">Print Form</button> 
+            </form>
+            <div style="width: 25%;margin: 16px auto; font-size: 18px; color: #fff; padding: 10px; border-radius: 8px; background-color: #0086b3;">
+                Result: {{ result2 }}
+            </div>
+       </div>
+       <script>
+        function printForm() {
+            
+            var formContent = document.querySelector('.main1').cloneNode(true);
+            
+            var submitButton = formContent.querySelector('input[type="submit"]');
+            submitButton.remove();
+
+            var printButton = formContent.querySelector('.print-button');
+            printButton.remove();
+        
+            var resultContent = document.querySelector('.main div').innerHTML;
+            var printWindow = window.open('', '_blank');
+            var currentDate = new Date().toLocaleDateString();
+            var currentTime = new Date().toLocaleTimeString();
+            var report = '<html><head><title>Diabetes Prediction Report</title></head><body>' +
+                         '<h1>Diabetes Prediction Report</h1>' +
+                         '<p><strong>Date:</strong> ' + currentDate + '</p>' +
+                         '<p><strong>Time:</strong> ' + currentTime + '</p>' +
+                         '<h2>Patient Information</h2>' +
+                         formContent.outerHTML +
+                         '<h2>Result</h2>' +
+                         resultContent +
+                         '</body></html>';
+        
+            printWindow.document.write(report);
+            printWindow.print();
+
+        }
+        </script>
+    </body>
+</html>

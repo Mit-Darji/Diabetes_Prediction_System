@@ -1,0 +1,87 @@
+body {
+    background-image: url('../images/image3.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 110%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    color: #0086b3;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+table tr {
+    margin-bottom: 15px;
+}
+td:nth-child(2) {
+    width: 60%;
+}
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+input[type="text"] {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #cdcbcb;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color:  #0086b3 ;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #006080 ;
+}
+
+.print-button {
+    background-color: #0086b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.print-button:hover {
+    background-color: #005580;
+}
